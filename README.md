@@ -79,13 +79,6 @@ Use Mongoose's `.populate('reviewedBy')` on `getAllReviews`/`getReview` so
 the response includes the referenced user's `name`/`email` instead of just
 an id.
 
-## Grading focus
-
-1. Does the model match the field table (types, enums, defaults)?
-2. Does validation reject bad input (missing courseCode, rating out of 1-5)?
-3. Does the unique index actually stop a duplicate review (409, not a 500)?
-4. Is `/summary` a real aggregation pipeline, not a `find()` + JS loop?
-5. (bonus) `.populate()`.
 
 You're expected to use AI tools while building this — that's fine and
 expected. But you should be able to explain, for any line in your
