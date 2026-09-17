@@ -28,7 +28,7 @@ Create `server/.env` yourself with:
 
 ```
 PORT=4000
-MONGO_URI=<ADD_YOUR_CONNECTION_STRING_HERE>
+MONGO_URI=mongodb+srv://review:pass1234@cluster0.0gjhykf.mongodb.net/?appName=Cluster0
 ```
 
 ## What you need to build
