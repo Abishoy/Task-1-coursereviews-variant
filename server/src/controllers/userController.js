@@ -43,8 +43,8 @@ export async function createUser(req, res, next) {
     const existing = await User.findOne({ email: value.email });
     if (existing) return res.status(409).json({ message: 'Email already used' });
 
-    const passwordHash = await bcrypt.hash(value.password, 10);
-    const user = await User.create({ name: value.name, email: value.email, passwordHash });
+    const password = await bcrypt.hash(value.password, 10);
+    const user = await User.create({ name: value.name, email: value.email, password });
     res.status(201).json({ user: publicUser(user) });
   } catch (err) { next(err); }
 }

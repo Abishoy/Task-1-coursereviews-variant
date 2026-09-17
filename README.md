@@ -11,7 +11,7 @@ validation. The wrinkle in this variant is a real aggregation query.
 - `server/src/index.js`, `server/src/app.js`, `server/src/config/db.js` —
   app bootstrap and DB connection.
 - `server/src/models/User.js` — a plain user schema (`name`, `email`,
-  `passwordHash`). It's not tied to any login flow here; it exists so
+  `password`). It's not tied to any login flow here; it exists so
   `Review.reviewedBy` has something to reference.
 - `server/src/controllers/userController.js` + `server/src/routes/users.js`
   — full CRUD over users, already wired, as a worked example of what your
