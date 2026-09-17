@@ -47,23 +47,18 @@ Add `{ timestamps: true }` and a **compound unique index** on
 
 ### 2. Validation — inside `server/src/controllers/reviewController.js`
 
-Joi (or your choice) schema for create/update. `rating` must be an integer
+Joi schema for create/update. `rating` must be an integer
 1-5.
 
 ### 3. Controller + routes
 
-| method | path | behavior |
-|---|---|---|
-| GET | `/api/reviews` | list all reviews, newest first |
-| GET | `/api/reviews/:id` | get one review |
-| GET | `/api/reviews/summary?courseCode=CS101` | course-wide average rating + count |
-| POST | `/api/reviews` | create a review |
-| PATCH | `/api/reviews/:id` | partial update |
-| DELETE | `/api/reviews/:id` | delete |
-
-Mind the route order — `/summary` needs to be registered before `/:id`, or
-Express will try to treat `"summary"` as an `:id` and your `findById` will
-blow up. Figure out why, don't just memorize the fix.
+Implement full CRUD over reviews — create, read one, read all, update, and
+delete — plus a separate, unscoped read-only endpoint that returns an
+aggregate summary for a given course. Decide the paths and HTTP methods
+yourself, following standard REST conventions. Think carefully about the
+order you register routes in: a specific static route can get shadowed by
+a dynamic parameterized one if it's registered after it — figure out why,
+don't just memorize the fix.
 
 ### 4. The aggregation — the actual point of this variant
 
@@ -78,7 +73,6 @@ this is your first real use of the pipeline instead of `find()`.
 Use Mongoose's `.populate('reviewedBy')` on `getAllReviews`/`getReview` so
 the response includes the referenced user's `name`/`email` instead of just
 an id.
-
 
 You're expected to use AI tools while building this — that's fine and
 expected. But you should be able to explain, for any line in your
