@@ -28,7 +28,7 @@ Create `server/.env` yourself with:
 
 ```
 PORT=4000
-MONGO_URI=mongodb+srv://review:pass1234@cluster0.0gjhykf.mongodb.net/?appName=Cluster0
+MONGO_URI=mongodb://ziadmaged_db_user:aoLMeM6xgPb8dX0P@ac-epwm1yp-shard-00-00.wiomvln.mongodb.net:27017,ac-epwm1yp-shard-00-01.wiomvln.mongodb.net:27017,ac-epwm1yp-shard-00-02.wiomvln.mongodb.net:27017/?ssl=true&replicaSet=atlas-6haoei-shard-0&authSource=admin&appName=Cluster0
 ```
 
 ## What you need to build
